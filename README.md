@@ -1,7 +1,7 @@
 # Demo
 
-You can reach out the demo [https://basic-todo-app-1.netlify.app/](here) .
-Thanks to [https://www.netlify.com](netlify) .
+You can reach out the demo [here](https://basic-todo-app-1.netlify.app/) .
+Thanks to [netlify](https://www.netlify.com) .
 
 # Getting Started with Create React App
 
