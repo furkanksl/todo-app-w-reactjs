@@ -17,7 +17,7 @@ function Todo(props) {
 
   return (
     <div className="card">
-      <h2> {props.text} </h2>
+      <p> {props.text} </p>
       <div className="button-container">
         <button onClick={deleteTodo}> Delete </button>
       </div>

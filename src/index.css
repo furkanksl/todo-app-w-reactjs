@@ -26,6 +26,11 @@ body {
   width: inherit;
 }
 
+.card p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
@@ -35,16 +40,20 @@ body {
 }
 
 .button-container button {
-  background-color: red;
-  color: white;
+  background-color: white;
+  color: red;
   padding: 10px;
-  border: 0;
+  border: 1px solid red;
   border-radius: 5px;
 }
 
-.button-container button :hover {
+.button-container button:hover {
   background-color: darkorange;
   cursor: pointer;
+  background-color: red;
+  color: white;
+  /* border: 1px solid transparent; */
+  border-radius: 5px;
 }
 
 ul {
@@ -105,4 +114,39 @@ ul {
   border: 0;
   border-radius: 5px;
   font-weight: 600;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  /* max-width: 400px; */
+}
+
+.header-container .new-todo-button:hover {
+  background-color: green;
+}
+
+.header-container .new-todo-button {
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: coral;
+}
+
+.header-container .title {
+  color: black;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+li {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
 }

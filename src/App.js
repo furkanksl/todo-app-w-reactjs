@@ -28,7 +28,10 @@ const todoItems = todos.map((todo) => (
 function App() {
   return (
     <div className="container">
-      <h1> My Todos </h1>
+      <div className="header-container">
+        <p className="title">My Todo List</p>
+        <button className="new-todo-button">New Todo</button>
+      </div>
       <ul>{todoItems}</ul>
     </div>
   );
