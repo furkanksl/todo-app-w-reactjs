@@ -1,5 +1,6 @@
 import Todo from "./components/Todo";
 import { useState } from "react";
+import AddTodo from "./components/AddTodo";
 
 var todosDummyData = [
   {
@@ -22,7 +23,8 @@ var todosDummyData = [
 
 function App() {
   const [todos, setTodos] = useState(todosDummyData);
-  const [todoItems, setTodoItems] = useState(createTodoCard());
+  const [todoItems, setTodoItems] = useState(createTodoCard().reverse());
+  const [isNewTodoModalOpen, setIsNewTodoModelOpen] = useState(false);
 
   function createTodoCard() {
     var todoItems = todos.map((todo) =>
@@ -40,20 +42,50 @@ function App() {
       if (todo.id === id) {
         todos[index] = {};
         setTodos(todos);
-        setTodoItems(createTodoCard());
-        console.log(todos);
+        setTodoItems(createTodoCard().reverse());
+        // console.log(todos);
         return;
       }
     });
+  }
+
+  function addTodo(text) {
+    if (text === "") {
+      closeNewTodoModal();
+      return;
+    }
+
+    var todoItem = {
+      id: todos.length + 1,
+      text: text,
+    };
+
+    todos.push(todoItem);
+    setTodos(todos);
+    setTodoItems(createTodoCard().reverse());
+    closeNewTodoModal();
+  }
+
+  function openNewTodoModal() {
+    setIsNewTodoModelOpen(true);
+  }
+
+  function closeNewTodoModal() {
+    setIsNewTodoModelOpen(false);
   }
 
   return (
     <div className="container">
       <div className="header-container">
         <p className="title">My Todo List</p>
-        <button className="new-todo-button">New Todo</button>
+        <button className="new-todo-button" onClick={openNewTodoModal}>
+          New Todo
+        </button>
       </div>
       <ul>{todoItems}</ul>
+      {isNewTodoModalOpen && (
+        <AddTodo onConfirm={addTodo} onCancel={closeNewTodoModal} />
+      )}
     </div>
   );
 }
