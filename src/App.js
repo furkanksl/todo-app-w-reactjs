@@ -1,6 +1,7 @@
 import Todo from "./components/Todo";
+import { useState } from "react";
 
-var todos = [
+var todosDummyData = [
   {
     id: 1,
     text: "Clean room",
@@ -19,13 +20,33 @@ var todos = [
   },
 ];
 
-const todoItems = todos.map((todo) => (
-  <li key={todo.id}>
-    <Todo text={todo.text} id={todo.id} />
-  </li>
-));
-
 function App() {
+  const [todos, setTodos] = useState(todosDummyData);
+  const [todoItems, setTodoItems] = useState(createTodoCard());
+
+  function createTodoCard() {
+    var todoItems = todos.map((todo) =>
+      todo.id !== undefined ? (
+        <li key={todo.id}>
+          <Todo text={todo.text} id={todo.id} deleteTodo={deleteTodo} />
+        </li>
+      ) : null
+    );
+    return todoItems;
+  }
+
+  function deleteTodo(id) {
+    todos.forEach((todo, index) => {
+      if (todo.id === id) {
+        todos[index] = {};
+        setTodos(todos);
+        setTodoItems(createTodoCard());
+        console.log(todos);
+        return;
+      }
+    });
+  }
+
   return (
     <div className="container">
       <div className="header-container">

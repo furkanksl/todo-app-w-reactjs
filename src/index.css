@@ -77,11 +77,10 @@ ul {
   z-index: 10000;
   background-color: white;
   padding: 20px;
-  margin: 0 auto;
-  top: 44%;
-  bottom: 44%;
-  right: 30%;
-  left: 30%;
+  top: calc(50% - 50px);
+  bottom: calc(50% - 50px);
+  right: calc(50% - 100px);
+  left: calc(50% - 100px);
   flex-direction: column;
   border-radius: 10px;
   border: 1px solid crimson;
@@ -105,6 +104,7 @@ ul {
   border-radius: 10px;
   border: 1px solid red;
   font-weight: 600;
+  width: 72px;
 }
 
 .confirm-button {
@@ -114,6 +114,7 @@ ul {
   border: 0;
   border-radius: 5px;
   font-weight: 600;
+  width: 72px;
 }
 
 .header-container {
@@ -136,7 +137,7 @@ ul {
   font-weight: 700;
   border: 1px solid black;
   border-radius: 10px;
-  background: coral;
+  background: gray;
 }
 
 .header-container .title {

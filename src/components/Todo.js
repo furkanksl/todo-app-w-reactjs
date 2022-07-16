@@ -15,6 +15,11 @@ function Todo(props) {
     setIsModelOpen(false);
   }
 
+  function confirmDeleteModel() {
+    props.deleteTodo(props.id);
+    setIsModelOpen(false);
+  }
+
   return (
     <div className="card">
       <p> {props.text} </p>
@@ -22,7 +27,7 @@ function Todo(props) {
         <button onClick={deleteTodo}> Delete </button>
       </div>
       {isModalOpen && (
-        <Modal onCancel={closeDeleteModel} onConfirm={closeDeleteModel} />
+        <Modal onCancel={closeDeleteModel} onConfirm={confirmDeleteModel} />
       )}
       {isModalOpen && <Backdrop onCancel={closeDeleteModel} />}
     </div>
