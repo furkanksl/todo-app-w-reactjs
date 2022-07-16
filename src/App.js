@@ -1,6 +1,6 @@
 import Todo from "./components/Todo";
 import { useState } from "react";
-import AddTodo from "./components/AddTodo";
+import AddTodoModal from "./components/AddTodo";
 
 var todosDummyData = [
   {
@@ -84,7 +84,7 @@ function App() {
       </div>
       <ul>{todoItems}</ul>
       {isNewTodoModalOpen && (
-        <AddTodo onConfirm={addTodo} onCancel={closeNewTodoModal} />
+        <AddTodoModal onConfirm={addTodo} onCancel={closeNewTodoModal} />
       )}
     </div>
   );

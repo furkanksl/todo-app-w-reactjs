@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AddTodo(props) {
+function AddTodoModal(props) {
   var [text, setText] = useState("");
 
   function cancelHandler() {
@@ -47,4 +47,4 @@ function AddTodo(props) {
   );
 }
 
-export default AddTodo;
+export default AddTodoModal;
